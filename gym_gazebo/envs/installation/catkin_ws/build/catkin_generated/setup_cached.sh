@@ -7,5 +7,5 @@
 # new environment variables
 
 # modified environment variables
-export PWD="/home/server-adm/robot_ws/src/td-rl/gym_gazebo/envs/installation/catkin_ws/build"
-export ROS_PACKAGE_PATH="/home/server-adm/robot_ws/src/gym-gazebo/gym_gazebo/envs/installation/catkin_ws/src:/home/server-adm/robot_ws/src/td-rl/gym_gazebo/envs/installation/catkin_ws/src:/opt/ros/kinetic/share"
+export PWD="/home/server-adm/robot_ws/src/tp-rl/gym_gazebo/envs/installation/catkin_ws/build"
+export ROS_PACKAGE_PATH="/home/server-adm/robot_ws/src/gym-gazebo/gym_gazebo/envs/installation/catkin_ws/src:/home/server-adm/robot_ws/src/td-rl/gym_gazebo/envs/installation/catkin_ws/src:/home/server-adm/robot_ws/src/tp-rl/gym_gazebo/envs/installation/catkin_ws/src:/opt/ros/kinetic/share"

@@ -5,13 +5,7 @@
 <!--[![alt tag](https://travis-ci.org/erlerobot/gym.svg?branch=master)](https://travis-ci.org/erlerobot/gym)-->
 
 This repository is a fork of the gym-gazebo repository : https://github.com/erlerobot/gym-gazebo.
------
 
-**`gym-gazebo` is a complex piece of software for roboticists that puts together simulation tools, robot middlewares (ROS, ROS 2), machine learning and reinforcement learning techniques. All together to create an environment whereto benchmark and develop behaviors with robots. Setting up `gym-gazebo` appropriately requires relevant familiarity with these tools.**
-
-**Code is available "as it is" and currently it's not supported by any specific organization. Community support is available [here](https://github.com/erlerobot/gym-gazebo/issues). Pull requests and contributions are welcomed.**
-
------
 
 ## Table of Contents
 - [Environments](#community-maintained-environments)
@@ -36,13 +30,6 @@ Refer to [INSTALL.md](INSTALL.md)
 
 ## Usage
 
-### Build and install gym-gazebo
-
-In the root directory of the repository:
-
-```bash
-sudo pip install -e .
-```
 
 ### Running an environment
 Run any of the examples available in `examples/`. E.g.:
@@ -81,10 +68,7 @@ Display :
 To see what's going on in Gazebo during a simulation, likewise write down the GAZEBO_MASTER_URI used by the python program. In the beginning it will display lines like:
 ```bash
 ROS_MASTER_URI=http://localhost:12461
-
 GAZEBO_MASTER_URI=http://localhost:12462
-
-
 ```
 
 Then simply run gazebo client with the following commands from the terminal:
@@ -105,6 +89,7 @@ echo "alias killgazebogym='killall -9 rosout roslaunch rosmaster gzserver nodele
 ```
 
 
+# Gym-Gazebo
 Gym-gazebo work presents an extension of the initial OpenAI gym for robotics using ROS and Gazebo. A whitepaper about this work is available at https://arxiv.org/abs/1608.05742. Please use the following BibTex entry to cite our work:
 
 ```
@@ -116,4 +101,11 @@ Gym-gazebo work presents an extension of the initial OpenAI gym for robotics usi
 }
 ```
 
+-----
+
+**`gym-gazebo` is a complex piece of software for roboticists that puts together simulation tools, robot middlewares (ROS, ROS 2), machine learning and reinforcement learning techniques. All together to create an environment whereto benchmark and develop behaviors with robots. Setting up `gym-gazebo` appropriately requires relevant familiarity with these tools.**
+
+**Code is available "as it is" and currently it's not supported by any specific organization. Community support is available [here](https://github.com/erlerobot/gym-gazebo/issues). Pull requests and contributions are welcomed.**
+
+-----
 -----
