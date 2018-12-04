@@ -5,18 +5,6 @@
 <!--[![alt tag](https://travis-ci.org/erlerobot/gym.svg?branch=master)](https://travis-ci.org/erlerobot/gym)-->
 
 This repository is a fork of the gym-gazebo repository : https://github.com/erlerobot/gym-gazebo.
-
-This work presents an extension of the initial OpenAI gym for robotics using ROS and Gazebo. A whitepaper about this work is available at https://arxiv.org/abs/1608.05742. Please use the following BibTex entry to cite our work:
-
-```
-@article{zamora2016extending,
-  title={Extending the OpenAI Gym for robotics: a toolkit for reinforcement learning using ROS and Gazebo},
-  author={Zamora, Iker and Lopez, Nestor Gonzalez and Vilches, Victor Mayoral and Cordero, Alejandro Hernandez},
-  journal={arXiv preprint arXiv:1608.05742},
-  year={2016}
-}
-```
-
 -----
 
 **`gym-gazebo` is a complex piece of software for roboticists that puts together simulation tools, robot middlewares (ROS, ROS 2), machine learning and reinforcement learning techniques. All together to create an environment whereto benchmark and develop behaviors with robots. Setting up `gym-gazebo` appropriately requires relevant familiarity with these tools.**
@@ -70,12 +58,15 @@ This program will display a graph showing the current reward history.
 ### Display the simulation
 
 To see what the robot is sensing with rviz. First write down the ROS_MASTER_URI used by the previous program, for instance if the terminal displays lines
-```Roscore launched!
+```bash
+Roscore launched!
 Unable to register with master node [http://localhost:14508]: master may not be running yet. Will keep trying.
 ROS_MASTER_URI=http://server-robot:14508/
 ```
-In a new terminal use commands to visualise with rviz: 
-```export ROS_MASTER_URI=http://server-robot:14508
+
+In a new terminal use these commands to visualise with rviz: 
+```bash
+export ROS_MASTER_URI=http://server-robot:14508
 rosrun rviz rviz
 ```
 
@@ -88,7 +79,8 @@ Display :
 - map>Topic :  /map
 
 To see what's going on in Gazebo during a simulation, likewise write down the GAZEBO_MASTER_URI used by the python program. In the beginning it will display lines like:
-```ROS_MASTER_URI=http://localhost:12461
+```bash
+ROS_MASTER_URI=http://localhost:12461
 
 GAZEBO_MASTER_URI=http://localhost:12462
 
@@ -97,7 +89,8 @@ GAZEBO_MASTER_URI=http://localhost:12462
 
 Then simply run gazebo client with the following commands from the terminal:
 
-```export GAZEBO_MASTER_URI=http://localhost:12462
+```bash
+export GAZEBO_MASTER_URI=http://localhost:12462
 gzclient
 ```
 
@@ -110,3 +103,17 @@ We recommend creating an alias to kill those processes.
 ```bash
 echo "alias killgazebogym='killall -9 rosout roslaunch rosmaster gzserver nodelet robot_state_publisher gzclient'" >> ~/.bashrc
 ```
+
+
+Gym-gazebo work presents an extension of the initial OpenAI gym for robotics using ROS and Gazebo. A whitepaper about this work is available at https://arxiv.org/abs/1608.05742. Please use the following BibTex entry to cite our work:
+
+```
+@article{zamora2016extending,
+  title={Extending the OpenAI Gym for robotics: a toolkit for reinforcement learning using ROS and Gazebo},
+  author={Zamora, Iker and Lopez, Nestor Gonzalez and Vilches, Victor Mayoral and Cordero, Alejandro Hernandez},
+  journal={arXiv preprint arXiv:1608.05742},
+  year={2016}
+}
+```
+
+-----
