@@ -6,6 +6,7 @@
 
 This repository is a fork of the gym-gazebo repository : https://github.com/erlerobot/gym-gazebo.
 
+The readme of this TP is available on https://github.com/nguyensmai/tp-rl
 
 ## Table of Contents
 - [Environments](#community-maintained-environments)
@@ -87,6 +88,38 @@ We recommend creating an alias to kill those processes.
 ```bash
 echo "alias killgazebogym='killall -9 rosout roslaunch rosmaster gzserver nodelet robot_state_publisher gzclient'" >> ~/.bashrc
 ```
+
+# Details for the environment GazeboCircuit2TurtlebotLIDAR-v0 : 
+
+ This  environment
+consists of a simple straight lined circuit with five right turns
+and one left turn.  We will use just a LIDAR sensor to train
+the  Turtlebot,  no  positioning  or  other  kind  of  data  will  be
+used.
+
+  The actions and rewards used in the
+environment are the following
+
+- Actions
+  -Forward:  v = 0.3 m/s
+  -Left/Right:  v = 0.05 m/s , w = +-0.3 rad/s
+
+- Rewards
+   - Forward:  5
+   - Left/Right:  1
+   - Crash:  -200
+
+Forward actions take five times more reward than turns, this
+will  make  the  robot  take  more  forward  actions  as  they  give
+more  reward.   We  want  to  take  as  many  forward  actions  as
+possible  so  that  the  robot  goes  forward  in  straight  tracks,
+which will lead to a faster and more realistic behaviour.
+
+Left and right actions are rewarded with 1, as they are needed
+to avoid crashes too.  Setting them higher would result in a
+zigzagging behaviour.
+Crashes  earn  very  negative  rewards  for  obvious  reasons,  we
+want to avoid obstacles
 
 
 # Gym-Gazebo

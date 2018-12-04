@@ -1,4 +1,5 @@
 import random
+import numpy as np
 
 class QLearn:
     def __init__(self, actions, epsilon, alpha, gamma):
@@ -49,3 +50,9 @@ class QLearn:
     def learn(self, state1, action1, reward, state2):
         maxqnew = max([self.getQ(state2, a) for a in self.actions])
         self.learnQ(state1, action1, reward, reward + self.gamma*maxqnew)
+
+    def saveQ(self, filename):
+        np.save(filename, self.q)
+
+    def loadQ(self, filename):
+        self.q = np.load(filename).item()

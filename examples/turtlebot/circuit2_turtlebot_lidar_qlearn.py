@@ -81,6 +81,7 @@ if __name__ == '__main__':
 
         if x%100==0:
             plotter.plot(env)
+            qlearn.saveQ("qlearnResults")
 
         m, s = divmod(int(time.time() - start_time), 60)
         h, m = divmod(m, 60)
