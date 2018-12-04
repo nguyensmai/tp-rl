@@ -4,6 +4,8 @@
 
 <!--[![alt tag](https://travis-ci.org/erlerobot/gym.svg?branch=master)](https://travis-ci.org/erlerobot/gym)-->
 
+This repository is a fork of the gym-gazebo repository : https://github.com/erlerobot/gym-gazebo.
+
 This work presents an extension of the initial OpenAI gym for robotics using ROS and Gazebo. A whitepaper about this work is available at https://arxiv.org/abs/1608.05742. Please use the following BibTex entry to cite our work:
 
 ```
@@ -30,30 +32,16 @@ This work presents an extension of the initial OpenAI gym for robotics using ROS
 
 
 ## Community-maintained environments
-The following are some of the gazebo environments maintained by the community using `gym-gazebo`. If you'd like to contribute and maintain an additional environment, submit a Pull Request with the corresponding addition.
+In this course, we will look at some of the gazebo environments for turtlebot maintained by the community using `gym-gazebo`.
 
 | Name | Middleware | Description | Observation Space | Action Space | Reward range |
 | ---- | ------ | ----------- | ----- | --------- | -------- |
-| ![GazeboCircuit2TurtlebotLidar-v0](imgs/GazeboCircuit2TurtlebotLidar-v0.png)`GazeboCircuit2TurtlebotLidar-v0` | ROS | A simple circuit with straight tracks and 90 degree turns. Highly discretized LIDAR readings are used to train the Turtlebot. Scripts implementing **Q-learning** and **Sarsa** can be found in the _examples_ folder. | | | |
+| ![GazeboCircuit2TurtlebotLidar-v0](imgs/GazeboCircuit2TurtlebotLidar-v0.png)`GazeboCircuit2TurtlebotLidar-v0` | ROS | A simple circuit with straight tracks and 90 degree turns. Highly discretized LIDAR readings are used to train the Turtlebot. | | | |
 | ![GazeboCircuitTurtlebotLidar-v0](imgs/GazeboCircuitTurtlebotLidar-v0.png)`GazeboCircuitTurtlebotLidar-v0.png` | ROS | A more complex maze  with high contrast colors between the floor and the walls. Lidar is used as an input to train the robot for its navigation in the environment. | | | TBD |
-| `GazeboMazeErleRoverLidar-v0` | ROS, [APM](https://github.com/erlerobot/ardupilot) | **Deprecated** | | | |
-| `GazeboErleCopterHover-v0` | ROS, [APM](https://github.com/erlerobot/ardupilot) | **Deprecated** | | | |
 
-## Other environments (no support provided for these environments)
+They have shown to be able to learn using machine learning :
 
-The following table compiles a number of other environments that **do not have
-community support**.
-
-| Name | Middleware | Description | Observation Space | Action Space | Reward range |
-| ---- | ------ | ----------- | ----- | --------- | -------- |
-| ![cartpole-v0.png](imgs/cartpole.jpg)`GazeboCartPole-v0` | ROS | | Discrete(4,) | Discrete(2,) | 1) Pole Angle is more than ±12° 2)Cart Position is more than ±2.4 (center of the cart reaches the edge of the display) 3) Episode length is greater than 200 |
-| ![GazeboModularArticulatedArm4DOF-v1.png](imgs/GazeboModularArticulatedArm4DOF-v1.jpg)`GazeboModularArticulatedArm4DOF-v1` | ROS | This environment present a modular articulated arm robot with a two finger gripper at its end pointing towards the workspace of the robot.| Box(10,) | Box(3,) | (-1, 1) [`if rmse<5 mm 1 - rmse else reward=-rmse`]|
-| ![GazeboModularScara4DOF-v3.png](imgs/GazeboModularScara4DOF-v3.png)`GazeboModularScara4DOF-v3` | ROS | This environment present a modular SCARA robot with a range finder at its end pointing towards the workspace of the robot. The goal of this environment is defined to reach the center of the "O" from the "H-ROS" logo within the workspace. This environment compared to `GazeboModularScara3DOF-v2` is not pausing the Gazebo simulation and is tested in algorithms that solve continuous action space (PPO1 and ACKTR from baselines).This environment uses `slowness=1` and matches the delay between actions/observations to this value (slowness). In other words, actions are taken at "1/slowness" rate.| Box(10,) | Box(3,) | (-1, 1) [`if rmse<5 mm 1 - rmse else reward=-rmse`]|
-| ![GazeboModularScara3DOF-v3.png](imgs/GazeboModularScara3DOF-v3.png)`GazeboModularScara3DOF-v3` | ROS | This environment present a modular SCARA robot with a range finder at its end pointing towards the workspace of the robot. The goal of this environment is defined to reach the center of the "O" from the "H-ROS" logo within the workspace. This environment compared to `GazeboModularScara3DOF-v2` is not pausing the Gazebo simulation and is tested in algorithms that solve continuous action space (PPO1 and ACKTR from baselines).This environment uses `slowness=1` and matches the delay between actions/observations to this value (slowness). In other words, actions are taken at "1/slowness" rate.| Box(9,) | Box(3,) | (-1, 1) [`if rmse<5 mm 1 - rmse else reward=-rmse`]|
-| ![GazeboModularScara3DOF-v2.png](imgs/GazeboModularScara3DOF-v2.png)`GazeboModularScara3DOF-v2` | ROS | This environment present a modular SCARA robot with a range finder at its end pointing towards the workspace of the robot. The goal of this environment is defined to reach the center of the "O" from the "H-ROS" logo within the workspace. Reset function is implemented in a way that gives the robot 1 second to reach the "initial position".| Box(9,) | Box(3,) | (0, 1) [1 - rmse] |
-| ![GazeboModularScara3DOF-v1.png](imgs/GazeboModularScara3DOF-v1.png)`GazeboModularScara3DOF-v1` | ROS | **Deprecated** | | | TBD |
-| ![GazeboModularScara3DOF-v0.png](imgs/GazeboModularScara3DOF-v0.png)`GazeboModularScara3DOF-v0` | ROS | **Deprecated** | | | | TBD |
-| ![ariac_pick.jpg](imgs/ariac_pick.jpg)`ARIACPick-v0` | ROS | | | |  |
+https://www.youtube.com/watch?v=WADmP0wzLxs or http://emanual.robotis.com/docs/en/platform/turtlebot3/machine_learning/#installation
 
 ## Installation
 Refer to [INSTALL.md](INSTALL.md)
@@ -69,41 +57,49 @@ sudo pip install -e .
 ```
 
 ### Running an environment
-
-- Load the environment variables corresponding to the robot you want to launch. E.g. to load the Turtlebot:
-
-```bash
-cd gym_gazebo/envs/installation
-bash turtlebot_setup.bash
-```
-
-Note: all the setup scripts are available in `gym_gazebo/envs/installation`
-
-- Run any of the examples available in `examples/`. E.g.:
+Run any of the examples available in `examples/`. E.g.:
 
 ```bash
 cd examples/turtlebot
 python circuit2_turtlebot_lidar_qlearn.py
 ```
 
+This program will display a graph showing the current reward history.
+
+
 ### Display the simulation
 
-To see what's going on in Gazebo during a simulation, simply run gazebo client:
+To see what the robot is sensing with rviz. First write down the ROS_MASTER_URI used by the previous program, for instance if the terminal displays lines
+```Roscore launched!
+Unable to register with master node [http://localhost:14508]: master may not be running yet. Will keep trying.
+ROS_MASTER_URI=http://server-robot:14508/
+```
+In a new terminal use commands to visualise with rviz: 
+```export ROS_MASTER_URI=http://server-robot:14508
+rosrun rviz rviz
+```
 
-```bash
+Display :
+- the RGB image to see what the camera sees.
+- RobotModel
+- LaserScan>Topic : scan
+- Fixed Frame : odom
+- Grid> Reference Frame: base_link
+- map>Topic :  /map
+
+To see what's going on in Gazebo during a simulation, likewise write down the GAZEBO_MASTER_URI used by the python program. In the beginning it will display lines like:
+```ROS_MASTER_URI=http://localhost:12461
+
+GAZEBO_MASTER_URI=http://localhost:12462
+
+
+```
+
+Then simply run gazebo client with the following commands from the terminal:
+
+```export GAZEBO_MASTER_URI=http://localhost:12462
 gzclient
 ```
-
-### Display reward plot
-
-Display a graph showing the current reward history by running the following script:
-
-```bash
-cd examples/utilities
-python display_plot.py
-```
-
-HINT: use `--help` flag for more options.
 
 ### Killing background processes
 
