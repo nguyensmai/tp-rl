@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/server-adm/robot_ws/src/td-rl/gym_gazebo/envs/installation/catkin_ws/devel/setup.sh
