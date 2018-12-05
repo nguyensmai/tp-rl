@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import gym
+#import gym
 #from gym import wrappers
 #import gym_gazebo
 import time
