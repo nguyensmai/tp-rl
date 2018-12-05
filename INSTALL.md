@@ -17,7 +17,9 @@ Basic requirements:
 
 #### ROS Kinetic dependencies
 ```
-sudo pip3 install rospkg catkin_pkg
+sudo pip3 install rospkg catkin_pkg install opencv-python
+pip3 install netifaces
+
 
 sudo apt-get install python3-pyqt4
 
@@ -60,7 +62,22 @@ If successful, expect something like [this](https://gist.github.com/vmayoral/4a1
 ```
 sudo pip3 install h5py
 sudo apt-get install python3-skimage
+```
 
+!!!WARNING!!! The commands above must be undone when you finish this project
+Remove this opencv2 for python2.7 
+
+``` bash
+cd /opt/ros/kinetic/lib/python2.7/dist-packages/
+sudo mv cv2.so cv2Bkp.so
+```
+
+!!!WARNING!!! To restore your initial opencv2 library for python2.7,remember to:
+
+``` bash
+cd /opt/ros/kinetic/lib/python2.7/dist-packages/
+sudo mv cv2Bkp.so cv2.so
+```
 
 #### Try it out (turtlebot simple env)
 
