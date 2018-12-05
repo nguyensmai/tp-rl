@@ -21,7 +21,7 @@ sudo apt install python3-pip python3-pyqt4
 sudo pip3 install rospkg catkin_pkg opencv-python netifaces scikit-image matplotlib
 
 
-
+s
 sudo apt-get install \
 cmake gcc g++ qt4-qmake libqt4-dev \
 libusb-dev libftdi-dev \
@@ -46,6 +46,10 @@ ros-kinetic-navigation
 ```
 
 
+#### OpenAi
+git clone https://github.com/openai/gym.git
+cd gym
+pip install -e .
 
 #### Gazebo gym
 go to your ros working space and install the application
@@ -62,7 +66,7 @@ If successful, expect something like [this](https://gist.github.com/vmayoral/4a1
 #### Dependencies and libraries
 ```
 sudo pip3 install h5py
-sudo apt-get install python3-skimage
+sudo apt-get install python3-tk python3-skimage
 ```
 
 !!!WARNING!!! The commands above must be undone when you finish this project
