@@ -26,6 +26,22 @@ They have shown to be able to learn using machine learning :
 
 https://www.youtube.com/watch?v=WADmP0wzLxs or http://emanual.robotis.com/docs/en/platform/turtlebot3/machine_learning/#installation
 
+# First exercise : an atari grid maze
+Download the files from the zip or from https://github.com/nguyensmai/tp-rl
+
+In folder examples/maze are files to simulate the maze seen in the lesson. Read the readme.txt. You can run the a sarsa algorithm from the terminal:
+
+```bash
+python maze_sarsa.py
+```
+
+Sarsa algorithm is not yet implemented. 
+
+**__Q1. Please complete sarsa.py and gridworld.py to find the optimal policy. Report the optimal policy and the rewawrd values observed__**
+
+
+#Second exercise : a turtlebot in a circuit
+
 ## Installation
 Refer to [INSTALL.md](INSTALL.md)
 
@@ -89,7 +105,7 @@ We recommend creating an alias to kill those processes.
 echo "alias killgazebogym='killall -9 rosout roslaunch rosmaster gzserver nodelet robot_state_publisher gzclient'" >> ~/.bashrc
 ```
 
-# Details for the environment GazeboCircuit2TurtlebotLIDAR-v0 : 
+## Details for the environment GazeboCircuit2TurtlebotLIDAR-v0 : 
 
  This  environment
 consists of a simple straight lined circuit with five right turns
@@ -121,6 +137,22 @@ zigzagging behaviour.
 Crashes  earn  very  negative  rewards  for  obvious  reasons,  we
 want to avoid obstacles
 
+## Exploit a learned model
+In folder examples/turtlebot you will find data of trained models in *learnResults.npy files.
+Use examples/turtlebot/circuit2_turtlebot_lidar_qexploit.py and examples/turtlebot/circuit2_turtlebot_lidar_sarsaExploit.py to test if the robot can navigate in the maze.
+
+
+**__ Q2. Implement sarsa.py or qlearn.py to allow the robot to use the learned Q-value function. Report the reward graph __**
+**__ Q3. (optional) Implement the environment class to see the result on your turtlebot __**
+You can look at https://github.com/openai/gym/tree/master/gym/envs to understand the methods you need to implement for your environment class.
+
+## Sarsa
+
+**__ Q4. Implement sarsa algorithm for the simulation turtlebot. Report the learning reward graph __**
+
+## Q-learning
+
+**__ Q4. Implement q-learning algorithm for the simulation turtlebot and the maze. Report the reward graph __**
 
 # Gym-Gazebo
 Gym-gazebo work presents an extension of the initial OpenAI gym for robotics using ROS and Gazebo. A whitepaper about this work is available at https://arxiv.org/abs/1608.05742. Please use the following BibTex entry to cite our work:
