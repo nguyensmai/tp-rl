@@ -53,7 +53,7 @@ Run any of the examples available in `examples/`. E.g.:
 
 ```bash
 cd examples/turtlebot
-python circuit2_turtlebot_lidar_qlearn.py
+python circuit2_turtlebot_lidar_sarsa.py
 ```
 
 This program will display a graph showing the current reward history.

@@ -17,11 +17,10 @@ Basic requirements:
 
 #### ROS Kinetic dependencies
 ```
-sudo pip3 install rospkg catkin_pkg install opencv-python
-pip3 install netifaces
+sudo apt install python3-pip python3-pyqt4
+sudo pip3 install rospkg catkin_pkg opencv-python netifaces scikit-image matplotlib
 
 
-sudo apt-get install python3-pyqt4
 
 sudo apt-get install \
 cmake gcc g++ qt4-qmake libqt4-dev \
@@ -49,8 +48,10 @@ ros-kinetic-navigation
 
 
 #### Gazebo gym
+go to your ros working space and install the application
 
 ```bash
+cd ros_folder/src
 git clone https://github.com/nguyensmai/tp-rl.git
 cd tp-rl
 pip3 install -e .
@@ -65,14 +66,14 @@ sudo apt-get install python3-skimage
 ```
 
 !!!WARNING!!! The commands above must be undone when you finish this project
-Remove this opencv2 for python2.7 
+Remove the library opencv2 of python2.7 
 
 ``` bash
 cd /opt/ros/kinetic/lib/python2.7/dist-packages/
 sudo mv cv2.so cv2Bkp.so
 ```
 
-!!!WARNING!!! To restore your initial opencv2 library for python2.7,remember to:
+!!!WARNING!!! At the end of this project, to restore your initial opencv2 library for python2.7,remember to:
 
 ``` bash
 cd /opt/ros/kinetic/lib/python2.7/dist-packages/
@@ -81,25 +82,43 @@ sudo mv cv2Bkp.so cv2.so
 
 #### Try it out (turtlebot simple env)
 
-**Issues**:
-- `spacenav_node` not compiling. `CATKIN_IGNORE`d.
-- `wiimote` not compiling. `CATKIN_IGNORE`d.
-- `kobuki_qtestsuite` not compiling. `CATKIN_IGNORE`d.
-
 
 Agent dependencies:
 ```bash
 cd gym_gazebo/envs/installation
-bash setup_kinetic.bash		
+bash setup_kinetic.bash	
+bash turtlebot_setup.bash 
 ```
 
-Run the environment with a sample agent:
+Ignore error messages such as 
+```bash 
+bash: /home/mai/catkin_ws/src/tp-rl/gym_gazebo/envs/installation/catkin_ws/devel/setup.bash: No such file or directory
+```
+
+Open a new terminal. Run the environment with a sarsa agent:
 ```bash
-cd examples/turtlebot
-python circuit2_turtlebot_lidar_qlearn.py
+cd working_space_path/tp-rl/examples/turtlebot
+python3 circuit2_turtlebot_lidar_sarsa.py
 ```
 
-### Ubuntu 18.04
+**Known Issues**:
+- `spacenav_node` not compiling. `CATKIN_IGNORE`d.
+- `wiimote` not compiling. `CATKIN_IGNORE`d.
+- `kobuki_qtestsuite` not compiling. `CATKIN_IGNORE`d.
+
+-  If you get the message error ```bash
+Invalid <arg> tag: environment variable 'GYM_GAZEBO_WORLD_CIRCUIT2' is not set. 
+
+Arg xml is <arg default="$(env GYM_GAZEBO_WORLD_CIRCUIT2)" name="world_file"/>
+The traceback for the exception was written to the log file
+``` You will need to go to folder  gym_gazebo/envs/installation and execute bash turtlebot_setup.bash 
+
+-  If you get the message error ```bash
+ImportError: /opt/ros/kinetic/lib/python2.7/dist-packages/cv2.so: undefined symbol: PyCObject_Type
+```
+you will need to remove the library opencv2 of python2.7 
+
+### Ubuntu 18.04 (not supported, only  indicative)
 
 #### Basic requirements
 - ROS Melodic: Desktop-Full Install recommended, includes Gazebo 9.0.0 (http://wiki.ros.org/melodic/Installation/Ubuntu).
@@ -137,8 +156,7 @@ ros-melodic-navigation
 #### Install Python Packages:
 ```
 sudo pip install gym
-sudo apt-get install python-skimage
-sudo pip install h5py
+sudo pip install h5py scikit-image
 pip install tensorflow-gpu (if you have a gpu if not then just pip install tensorflow)
 sudo pip install keras
 ```
