@@ -37,10 +37,10 @@ python maze_sarsa.py
 
 Sarsa algorithm is not yet implemented. 
 
-**__Q1. Please complete sarsa.py and gridworld.py to find the optimal policy. Report the optimal policy and the rewawrd values observed__**
+**_Q1. Please complete sarsa.py and gridworld.py to find the optimal policy. Report the optimal policy and the rewawrd values observed_**
 
 
-#Second exercise : a turtlebot in a circuit
+# Second exercise : a turtlebot in a circuit
 
 ## Installation
 Refer to [INSTALL.md](INSTALL.md)
@@ -117,8 +117,8 @@ used.
 environment are the following
 
 - Actions
-  -Forward:  v = 0.3 m/s
-  -Left/Right:  v = 0.05 m/s , w = +-0.3 rad/s
+  - Forward:  v = 0.3 m/s
+  - Left/Right:  v = 0.05 m/s , w = +-0.3 rad/s
 
 - Rewards
    - Forward:  5
@@ -142,17 +142,17 @@ In folder examples/turtlebot you will find data of trained models in *learnResul
 Use examples/turtlebot/circuit2_turtlebot_lidar_qexploit.py and examples/turtlebot/circuit2_turtlebot_lidar_sarsaExploit.py to test if the robot can navigate in the maze.
 
 
-**__ Q2. Implement sarsa.py or qlearn.py to allow the robot to use the learned Q-value function. Report the reward graph __**
-**__ Q3. (optional) Implement the environment class to see the result on your turtlebot __**
+**_Q2. Implement sarsa.py or qlearn.py to allow the robot to use the learned Q-value function. Report the reward graph_**
+**__Q3. (optional) Implement the environment class to see the result on your turtlebot_**
 You can look at https://github.com/openai/gym/tree/master/gym/envs to understand the methods you need to implement for your environment class.
 
 ## Sarsa
 
-**__ Q4. Implement sarsa algorithm for the simulation turtlebot. Report the learning reward graph __**
+**_Q4. Implement sarsa algorithm for the simulation turtlebot. Report the learning reward graph_**
 
 ## Q-learning
 
-**__ Q4. Implement q-learning algorithm for the simulation turtlebot and the maze. Report the reward graph __**
+**_Q5. Implement q-learning algorithm for the simulation turtlebot and the maze. Report the reward graph_**
 
 # Gym-Gazebo
 Gym-gazebo work presents an extension of the initial OpenAI gym for robotics using ROS and Gazebo. A whitepaper about this work is available at https://arxiv.org/abs/1608.05742. Please use the following BibTex entry to cite our work:
