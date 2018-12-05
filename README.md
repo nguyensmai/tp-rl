@@ -143,7 +143,7 @@ Use examples/turtlebot/circuit2_turtlebot_lidar_qexploit.py and examples/turtleb
 
 
 **_Q2. Implement sarsa.py or qlearn.py to allow the robot to use the learned Q-value function. Report the reward graph_**
-**__Q3. (optional) Implement the environment class to see the result on your turtlebot_**
+**_Q3. (optional) Implement the environment class to see the result on your turtlebot_**
 You can look at https://github.com/openai/gym/tree/master/gym/envs to understand the methods you need to implement for your environment class.
 
 ## Sarsa
